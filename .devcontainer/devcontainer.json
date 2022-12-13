@@ -1,0 +1,8 @@
+{
+    "name": "Pascal WASM",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "remoteEnv": { "PATH": "${containerEnv:PATH}:/wasi-sdk-17.0/bin" }
+}
