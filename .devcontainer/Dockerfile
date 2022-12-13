@@ -9,7 +9,9 @@ RUN apt install -y -qq fpc && \
 RUN echo '#ifdef cpuwasm32\n\
 -Fu/root/fpcwasm/lib/fpc/$fpcversion/units/$fpctarget/*\n\
 -Fu/root/fpcwasm/lib/fpc/$fpcversion/units/$fpctarget/rtl\n\
-\#endif' >> /root/.fpc.cfg
+#endif' >> /root/.fpc.cfg
+
+RUN ln -s /root/fpcwasm/lib/fpc/3.3.1/ppcrosswasm32 /usr/bin/fpcwasm
 
 
 
