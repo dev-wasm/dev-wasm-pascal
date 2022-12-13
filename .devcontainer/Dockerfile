@@ -6,7 +6,10 @@ RUN apt install -y -qq fpc && \
     make clean all OS_TARGET=wasi CPU_TARGET=wasm32 BINUTILSPREFIX= OPT="-O-" PP=fpc && \
     make crossinstall OS_TARGET=wasi CPU_TARGET=wasm32 INSTALL_PREFIX=$HOME/fpcwasm
 
-COPY .fpc.cfg /root/.fpc.cfg
+RUN echo '#ifdef cpuwasm32\n\
+-Fu/root/fpcwasm/lib/fpc/$fpcversion/units/$fpctarget/*\n\
+-Fu/root/fpcwasm/lib/fpc/$fpcversion/units/$fpctarget/rtl\n\
+\#endif' >> /root/.fpc.cfg
 
 
 
