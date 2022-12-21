@@ -1,4 +1,4 @@
-FROM brendanburns/wasm-dev-base:0.0.4
+FROM brendanburns/wasm-dev-base:0.0.6
 
 RUN apt install -y -qq fpc && \
     git clone https://gitlab.com/freepascal.org/fpc/source.git fpc && \
