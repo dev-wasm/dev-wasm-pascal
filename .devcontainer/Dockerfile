@@ -1,6 +1,7 @@
 FROM brendanburns/wasm-dev-base:0.0.6
 
-RUN apt install -y -qq fpc && \
+RUN apt update && \
+    apt install -y -qq fpc && \
     git clone https://gitlab.com/freepascal.org/fpc/source.git fpc && \
     cd fpc && \
     make clean all OS_TARGET=wasi CPU_TARGET=wasm32 BINUTILSPREFIX= OPT="-O-" PP=fpc && \
